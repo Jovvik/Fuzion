@@ -189,24 +189,8 @@ void Hooker::FindRankReveal()
 void Hooker::FindSendClanTag()
 {
 	uintptr_t func_address = PatternFinder::FindPatternInModule(XORSTR("engine_client.so"),
-																(unsigned char*) XORSTR("\x55\x48\x89\xE5\x41\x55\x49\x89\xFD\x41\x54\xBF\x48\x00\x00\x00\x49\x89\xF4\x53\x48\x83\xEC\x08\xE8"
-                                                                                                "\x00\x00\x00\x00"
-                                                                                                "\x48\x8D\x35"
-                                                                                                "\x00\x00\x00\x00"
-                                                                                                "\x48\x89\xC7\x48\x89\xC3\xE8"
-                                                                                                "\x00\x00\x00\x00"
-                                                                                                "\x48\x8D\x35"
-                                                                                                "\x00\x00\x00\x00"
-                                                                                                "\x4C\x89\xEA"),
-																XORSTR("xxxxxxxxxxxxxxxxxxxxxxxxx"
-                                                                               "????"
-                                                                               "xxx"
-                                                                               "????"
-                                                                               "xxxxxxx"
-                                                                               "????"
-                                                                               "xxx"
-                                                                               "????"
-                                                                               "xxx" ));
+																(unsigned char*) XORSTR("\x55\x48\x89\xE5\x41\x55\x49\x89\xFD\x41\x54\xBF\x00\x00\x00\x00\x49\x89\xF4\x53\x48\x83\xEC\x00\xE8\x00\x00\x00\x00\x31\xC9\x31\xD2\x48\x8D\x35\x00\x00\x00\x00\x48\x89\xC7\x48\x89\xC3\xE8\x00\x00\x00\x00\x48\x8D\x35\x00\x00\x00\x00\x4C\x89\xEA"),
+																XORSTR("xxxxxxxxxxxx????xxxxxxx?x????xxxxxxx????xxxxxxx????xxx????xxx"));
 
 	SendClanTag = reinterpret_cast<SendClanTagFn>(func_address);
 }
